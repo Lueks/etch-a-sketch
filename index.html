@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.box {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border: solid white 2px;
+}
+</style>
+
+<body>
+    <div id="grid"></div>
+</body>
+
+<script>
+
+function $(id) {
+        return document.getElementById(id)};
+
+const grid = $("grid");
+const column = $("column");
+const box = $("box");
+
+
+for (let i = 0; i <= 11; i++) {
+    let newColumn = document.createElement("div");
+    newColumn.setAttribute("class", "column");
+    grid.appendChild(newColumn);
+    for (let j = 0; j <= 11; j++) {
+        let newBox = document.createElement("div");
+        newBox.setAttribute("class", "box");
+        newColumn.appendChild(newBox);
+    };
+}
+
+
+</script>
+</html>
