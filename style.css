@@ -41,10 +41,3 @@
     flex-grow: 3;
 }
 
-.boxC {
-    background-color: blueviolet;
-}
-
-.box:hover{
-    background-color: aqua;
-}
