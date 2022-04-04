@@ -5,7 +5,7 @@ const grid = $("grid");
 const column = $("column");
 const box = $("box");
 const clrPck = $("clrPck");
-
+const prevCol = $("prevColor");
 
 let clmns = prompt("How many columns?", 16) -1;
 let rws = prompt("How many rows?", 16) -1;
@@ -21,12 +21,40 @@ for (let i = 0; i <= clmns; i++) {
             };
 };
 
+let colorHistory = ["#ffffff"];
+let undoHistory = [];
 let currentColor = clrPck.value; 
+let idx = 1
+
+let setPrevColor = (color) => {
+    let indx = colorHistory.length;
+    if (indx < 1) {
+        prevCol.style.backgroundColor = colorHistory[indx - 1];
+    } else {
+        prevCol.style.backgroundColor = colorHistory[indx - 2];
+    }};
+
+setPrevColor();
+
 clrPck.addEventListener("change", () => {
     currentColor = clrPck.value;
+    colorHistory.push(currentColor);
+    setPrevColor();
+
 });
 
-let test = () => {console.log(currentColor)};
+
+        
+prevCol.addEventListener("click", (e) => {
+    currentColor = prevCol.style.backgroundColor;
+    colorHistory.push(currentColor);
+    setPrevColor();
+    clrPck.value = prevCol.style.backgroundColor
+    
+    
+});
+
+let test = () => {console.log(colorHistory)};
 
 let btns = document.querySelectorAll("div.box");
 btns.forEach((btn) => {

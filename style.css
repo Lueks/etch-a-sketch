@@ -41,3 +41,9 @@
     flex-grow: 3;
 }
 
+#prevColor {
+    width: 50px;
+    height: 50px;
+    background-color: "#ffffff";
+    border: solid black 0.5px;
+}
